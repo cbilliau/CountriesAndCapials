@@ -12,7 +12,7 @@
   margin-top: 2rem;
 }
 .center {
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
 }
 .scrolled {
@@ -24,4 +24,10 @@
 }
 #right-column  {
   text-align: left;
+}
+.flag {
+  padding-top: 2rem;
+  -moz-transform:scale(0.5);
+  -webkit-transform:scale(0.5);
+  transform:scale(0.5);
 }
