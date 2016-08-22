@@ -19,3 +19,9 @@
   max-height: 45rem;
   overflow-y: scroll;
 }
+#left-column  {
+  text-align: right;
+}
+#right-column  {
+  text-align: left;
+}

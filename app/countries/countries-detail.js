@@ -11,5 +11,6 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
 }]);
 
 viewsModule.controller('CtryDetailCtrl', ['$scope', 'countryDetails', function($scope, countryDetails) {
-    $scope.countryDetails = countryDetails;
+    $scope.countryDetails = countryDetails.geonames[0];
+		console.log(countryDetails);
 }]);
