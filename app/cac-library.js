@@ -14,4 +14,17 @@ angular.module('cacLibrary', [])
                     return $q.when(response.data);
                 });
         };
+    }])
+		.factory('cacCountryDetails', ['$http', '$q', 'CAC_API_PREFIX', 'CAC_API_USERNAME', function($http, $q, CAC_API_PREFIX, CAC_API_USERNAME) {
+        return function(countryCode) {
+            var reqParams = angular.extend({}, {
+                username: CAC_API_USERNAME
+            });
+            return $http.get(CAC_API_PREFIX + '/countryInfoJSON?country=' + countryCode, {
+                    params: reqParams
+                }, {cache: true})
+                .then(function(response) {
+                    return $q.when(response.data);
+                });
+        };
     }]);
