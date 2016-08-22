@@ -12,5 +12,10 @@
   margin-top: 2rem;
 }
 .center {
+  margin-top: 2rem;
   text-align: center;
+}
+.scrolled {
+  max-height: 45rem;
+  overflow-y: scroll;
 }
