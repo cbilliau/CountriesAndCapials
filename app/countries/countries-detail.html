@@ -1,37 +1,41 @@
 <h3 class='title'>{{ countryDetails.countryName }}</h3>
 <div class="row">
-	<div class="one-half column" id="left-column">
-		<p>
-			Population of Country:
-		</p>
-		<p>
-			Area:
-		</p>
-		<p>
-			Population of Capital:
-		</p>
-		<p>
-			Three Neighbors:
-		</p>
-		<img src="http://www.geonames.org/img/country/250/{{ countryDetails.countryCode }}.png" />
-	</div>
-	<div class="one-half column" id="right-column">
-		<p>
-			{{ countryDetails.population | number }}
-		</p>
-		<p>
-			{{ countryDetails.areaInSqKm | number }} square km
-		</p>
-		<p>
-			{{ capitalPop.population | number }}
-		</p>
-		<p>
-			<span ng-repeat="neighbour in neighbours">  {{ neighbour }}  </span>
-		</p>
-		<img class="flag" src='http://www.geonames.org/flags/x/{{ countryDetails.countryCode | lowercase }}.gif' />
-	</div>
+    <div class="one-half column" id="left-column">
+        <p>
+            Population of Country:
+        </p>
+        <p>
+            Area:
+        </p>
+        <p>
+            Population of Capital:
+        </p>
+        <p>
+            Three Neighbors:
+        </p>
+        <img src="http://www.geonames.org/img/country/250/{{ countryDetails.countryCode }}.png"/>
+    </div>
+    <div class="one-half column" id="right-column">
+        <p>
+            {{ countryDetails.population | number }}
+        </p>
+        <p>
+            {{ countryDetails.areaInSqKm | number }}
+            square km
+        </p>
+        <p>
+            {{ capitalPop.population | number }}
+        </p>
+        <p>
+            <span ng-repeat="neighbour in neighbours">
+                <a ng-href='#!/countries/{{ neighbour.countryCode }}'>
+                    {{ neighbour.name}}</a>
+            </span>
+        </p>
+        <img class="u-max-full-width flag" src='http://www.geonames.org/flags/x/{{ countryDetails.countryCode | lowercase }}.gif'/>
+    </div>
 </div>
 <div class="center">
-	<a class="button" href="#!/home">Home</a>
-	<a class="button" href="#!/countries">Browse Countries</a>
+    <a class="button" href="#!/home">Home</a>
+    <a class="button" href="#!/countries">Browse Countries</a>
 </div>

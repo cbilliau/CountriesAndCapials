@@ -21,7 +21,7 @@ viewsModule.controller('CtryDetailCtrl', ['$scope', 'countryDetails', 'cacCapita
 		cacCountryNeighbors($scope.countryDetails)
 			.then(function(neighbours)	{
 				$scope.neighbours = neighbours.geonames;
-        $scope.neighbours = listOfNeighbours.list($scope.neighbours);
+        // $scope.neighbours = listOfNeighbours.list($scope.neighbours);
         console.log($scope.neighbours);
 			});
 
