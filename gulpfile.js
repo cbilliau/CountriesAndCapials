@@ -8,6 +8,7 @@ var minifyCss = require('gulp-clean-css');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var clean = require('gulp-clean');
+var deploy = require('gulp-gh-pages');
 
 var paths = {
 	scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js' ],
@@ -50,4 +51,11 @@ gulp.task('connect', function() {
     root: 'app/'
   });
 });
+
+// deploy
+gulp.task('deploy', function () {
+  return gulp.src("./buld/**/*")
+    .pipe(deploy())
+});
+
 gulp.task('default', ['connect']);
