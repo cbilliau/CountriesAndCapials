@@ -7,7 +7,7 @@ The application makes use of the Geonames.org API.
 
 ## Installation
 
-1. Clone from https://github.com
+1. Clone from https://github.com/cbilliau/CountriesAndCapials.git
 
 2. Then `cd` into the project directory and run `npm install`
 
