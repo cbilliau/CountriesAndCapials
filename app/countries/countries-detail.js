@@ -7,7 +7,11 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
                 return cacCountryDetails($route.current.params.countryCode);
             }]
         }
-    });
+    })
+    .when('/error', {
+        template: '<p>Error - Page Not Found</p>'
+    })
+    .otherwise('/error');
 }]);
 
 viewsModule.controller('CtryDetailCtrl', ['$scope', 'countryDetails', 'cacCapitalPopulation', 'cacCountryNeighbors', 'listOfNeighbours', function($scope, countryDetails, cacCapitalPopulation, cacCountryNeighbors, listOfNeighbours) {
@@ -21,8 +25,6 @@ viewsModule.controller('CtryDetailCtrl', ['$scope', 'countryDetails', 'cacCapita
 		cacCountryNeighbors($scope.countryDetails)
 			.then(function(neighbours)	{
 				$scope.neighbours = neighbours.geonames;
-        // $scope.neighbours = listOfNeighbours.list($scope.neighbours);
-        console.log($scope.neighbours);
 			});
 
 
