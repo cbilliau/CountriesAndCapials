@@ -18,7 +18,7 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
         $rootScope.$on('$routeChangeSuccess', function() {
             $timeout(function() {
                 $rootScope.isLoading = false;
-            }, 500); //<-- Timeout set to .5 sec
+            }, 1000); //<-- Timeout set to .5 sec
         });
     });
 

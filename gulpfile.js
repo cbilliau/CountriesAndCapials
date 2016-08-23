@@ -10,12 +10,14 @@ var rev = require('gulp-rev');
 var clean = require('gulp-clean');
 
 var paths = {
-	scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js'],
+	scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js' ],
 	html: [
 		'./app/**/*.html',
-		'./app/ >>>ADD FILE NAME <<<',
+		'./app/**/*.css',
+		'./app/bower_components/skeleton/**/*.css',
+		'./app/**/*.gif',
 		'!./app/index.html',
-		'!./app/bower_components/**/*.html'
+    '!./app/bower_components/**/*.html'
 	],
 	index: './app/index.html',
 	build: './build/'
