@@ -13,9 +13,9 @@ var paths = {
 	scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js' ],
 	html: [
 		'./app/**/*.html',
-		'./app/**/*.css',
-		'./app/bower_components/skeleton/**/*.css',
 		'./app/**/*.gif',
+		'!./app/bower_components/skeleton/**/*.css',
+		'!./app/bower_components/angular/**/*.css',
 		'!./app/index.html',
     '!./app/bower_components/**/*.html'
 	],
