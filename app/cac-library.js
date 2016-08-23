@@ -1,6 +1,6 @@
 angular.module('cacLibrary', [])
 
-.constant('CAC_API_PREFIX', 'http://api.geonames.org')
+    .constant('CAC_API_PREFIX', 'http://api.geonames.org')
     .constant('CAC_API_USERNAME', 'cbilliau')
     .factory('cacCountryInfo', ['$http', '$q', 'CAC_API_PREFIX', 'CAC_API_USERNAME', function($http, $q, CAC_API_PREFIX, CAC_API_USERNAME) {
         return function() {
@@ -62,4 +62,16 @@ angular.module('cacLibrary', [])
                     return $q.when(response.data);
                 });
         };
-    }]);
+    }])
+    .factory('listOfNeighbours', function()  {
+      var neighbours = [];
+      return {
+        list: function(list) {
+          for(i=0; i<list.length; i++) {
+            neighbours.push(list[i].name);
+            console.log(neighbours);
+          };
+          return neighbours;
+        }
+      };
+    });

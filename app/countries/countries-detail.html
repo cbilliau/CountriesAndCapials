@@ -26,7 +26,7 @@
 			{{ capitalPop.population | number }}
 		</p>
 		<p>
-			{{ }}
+			<span ng-repeat="neighbour in neighbours">  {{ neighbour }}  </span>
 		</p>
 		<img class="flag" src='http://www.geonames.org/flags/x/{{ countryDetails.countryCode | lowercase }}.gif' />
 	</div>

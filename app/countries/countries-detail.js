@@ -10,19 +10,20 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-viewsModule.controller('CtryDetailCtrl', ['$scope', 'countryDetails', 'cacCapitalPopulation', 'cacCountryNeighbors', function($scope, countryDetails, cacCapitalPopulation, cacCountryNeighbors) {
+viewsModule.controller('CtryDetailCtrl', ['$scope', 'countryDetails', 'cacCapitalPopulation', 'cacCountryNeighbors', 'listOfNeighbours', function($scope, countryDetails, cacCapitalPopulation, cacCountryNeighbors, listOfNeighbours) {
     $scope.countryDetails = countryDetails.geonames[0];
-		console.log(countryDetails);
 
 		cacCapitalPopulation($scope.countryDetails)
 			.then(function(capitalPop)	{
 				$scope.capitalPop = capitalPop.geonames[0];
-				console.log($scope.capitalPop.population);
 			});
 
 		cacCountryNeighbors($scope.countryDetails)
 			.then(function(neighbours)	{
-				$scope.neighbours = neighbours;
-				console.log($scope.neighbours);
-			})
+				$scope.neighbours = neighbours.geonames;
+        $scope.neighbours = listOfNeighbours.list($scope.neighbours);
+        console.log($scope.neighbours);
+			});
+
+
 }]);
