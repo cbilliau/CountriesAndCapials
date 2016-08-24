@@ -54,7 +54,7 @@ gulp.task('connect', function() {
 
 // deploy
 gulp.task('deploy', function () {
-  return gulp.src("./buld/**/*")
+  return gulp.src("./build/**/*")
     .pipe(deploy())
 });
 
