@@ -1,1 +1,2 @@
-var viewsModule = angular.module('cacAppViews', ['ngRoute', 'cacLibrary']);
+var viewsModule = angular.module('cacAppViews',
+		['ngRoute', 'cacLibrary']);
