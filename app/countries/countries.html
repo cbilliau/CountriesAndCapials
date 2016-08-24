@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="12 columns">
-    <input type="text" class="u-full-width" placeholder="Filter List" ng-model="search" />
-  </div>
+    <div class="12 columns">
+        <input type="text" class="u-full-width" placeholder="Filter List" ng-model="search"/>
+    </div>
 </div>
 <div class="scrolled">
     <table class="u-full-width">
@@ -17,7 +17,9 @@
         </thead>
         <tbody>
             <tr ng-repeat="country in countries | filter:search">
-                <td><a ng-href='#!/countries/{{ country.countryCode }}'>{{ country.countryName }}</a></td>
+                <td>
+                    <a ng-href='#!/countries/{{ country.countryCode }}'>{{ country.countryName }}</a>
+                </td>
                 <td>{{ country.countryCode }}</td>
                 <td>{{ country.capital }}</td>
                 <td>{{ country.areaInSqKm | number }}</td>
@@ -29,5 +31,5 @@
     </table>
 </div>
 <div class="center">
-		<a class="button" href="#!/home">Home</a>
+    <a class="button" href="#!/home">Home</a>
 </div>

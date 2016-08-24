@@ -63,15 +63,15 @@ angular.module('cacLibrary', [])
                 });
         };
     }])
-    .factory('listOfNeighbours', function()  {
-      var neighbours = [];
-      return {
-        list: function(list) {
-          for(i=0; i<list.length; i++) {
-            neighbours.push(list[i].name);
-            console.log(neighbours);
-          };
-          return neighbours;
-        }
-      };
+    .factory('listOfNeighbours', function() {
+        var neighbours = [];
+        return {
+            list: function(list) {
+                for (i = 0; i < list.length; i++) {
+                    neighbours.push(list[i].name);
+                    console.log(neighbours);
+                };
+                return neighbours;
+            }
+        };
     });
