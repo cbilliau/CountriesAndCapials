@@ -20,7 +20,11 @@ module.exports = function(config) {
       '../app/bower_components/angular-route/angular-route.js',
       '../app/bower_components/angular-animate/angular-animate.js',
       './unit/*.js',
-      '../app/**/*.js'
+      '../app/cac-App.js',
+      '../app/cac-app-views.js',
+      '../app/cac-library.js',
+      '../app/home/*.js',
+      '../app/countries/*.js'
     ],
 
 

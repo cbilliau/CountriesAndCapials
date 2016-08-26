@@ -70,7 +70,7 @@ angular.module('cacLibrary', [])
                 for (i = 0; i < list.length; i++) {
                     neighbours.push(list[i].name);
                     console.log(neighbours);
-                };
+                }
                 return neighbours;
             }
         };
