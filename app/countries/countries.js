@@ -23,7 +23,7 @@ viewsModule.config(['$routeProvider', function($routeProvider) {
     });
 
 viewsModule.controller('CountriesCtrl', ['$scope', 'cacCountryInfo', function($scope, cacCountryInfo) {
-    cacCountryInfo()
+    $scope.getCountryInfo = cacCountryInfo()
         .then(function(countriesXhr) {
             $scope.countries = countriesXhr.geonames;
         });

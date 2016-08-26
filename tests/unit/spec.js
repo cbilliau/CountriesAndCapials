@@ -120,13 +120,43 @@ xdescribe('Countries controller', function () {
     });
   }));
 
-  it('should ', function() {
-    $httpBackend.expectGET('http://api.geonames.org/countryInfoJSON?username=cbilliau').respond('...');
-    $httpBackend.flush();
-
+  it('should call function to grab data from an api', function() {
+    $httpBackend.whenGET('./countries').respond('...');
+    $httpBackend.whenGET('http://api.geonames.org/countryInfoJSON?username=cbilliau').respond('...');
     $scope.$apply(function() {
       $location.path('/countries');
     });
-    expect();
+    expect($location.path()).toBe('/countries');
   });
 });
+
+// Does not work. Cannot figure this out!!!!!!!
+describe('Countries-detail controller', function () {
+
+  var controller = null;
+  $scope = null;
+
+  beforeEach(function () {
+    module('cacApp');
+  });
+
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, _$location_) {
+    $location = _$location_;
+    $httpBackend = _$httpBackend_;
+    $scope = $rootScope.$new();
+    $root = $rootScope;
+    controller = $controller('CtryDetailCtrl', {
+      $scope: $scope
+    });
+  }));
+
+  it('should', function() {
+    $httpBackend.whenGET('./countries/:countryCode').respond('...');
+    $scope.$apply(function() {
+      $location.path('/countries/:countryCode');
+    });
+    expect($location.path()).toBe('/countries/:countryCode');
+  });
+});
+
+// Screw trying to figure out .factories if I cant figure out controller.
