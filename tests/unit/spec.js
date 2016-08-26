@@ -75,7 +75,7 @@ xdescribe('Countries page route test', function() {
 
 });
 
-describe('Countries-detail page route test', function() {
+xdescribe('Countries-detail page route test', function() {
 
   beforeEach(function() {
     module('cacApp');
@@ -97,5 +97,36 @@ describe('Countries-detail page route test', function() {
     });
     expect($route.current.templateUrl).toBe('./countries/countries-detail.html');
     expect($route.current.controller).toBe('CtryDetailCtrl');
+  });
+});
+
+// Controllers
+xdescribe('Countries controller', function () {
+
+  var controller = null;
+  $scope = null;
+
+  beforeEach(function () {
+    module('cacApp');
+  });
+
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, _$location_) {
+    $location = _$location_;
+    $httpBackend = _$httpBackend_;
+    $scope = $rootScope.$new();
+    $root = $rootScope;
+    controller = $controller('CountriesCtrl', {
+      $scope: $scope
+    });
+  }));
+
+  it('should ', function() {
+    $httpBackend.expectGET('http://api.geonames.org/countryInfoJSON?username=cbilliau').respond('...');
+    $httpBackend.flush();
+
+    $scope.$apply(function() {
+      $location.path('/countries');
+    });
+    expect();
   });
 });
