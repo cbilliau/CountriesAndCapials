@@ -9,6 +9,7 @@ var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var clean = require('gulp-clean');
 var deploy = require('gulp-gh-pages');
+var karma = require('karma').server;
 
 var paths = {
         scripts: ['app/**/*.js', '!app/bower_components/**/*.js'],
@@ -22,7 +23,7 @@ var paths = {
         ],
         index: './app/index.html',
         build: './build/'
-    }
+    };
     /* 1 */
 gulp.task('clean', function() {
     gulp.src(paths.build, {
@@ -42,7 +43,7 @@ gulp.task('usemin', ['copy'], function() {
             css: [minifyCss(), 'concat'],
             js: [ngminAnn(), uglify()]
         }))
-        .pipe(gulp.dest(paths.build))
+        .pipe(gulp.dest(paths.build));
 });
 
 gulp.task('build', ['usemin']);
@@ -57,7 +58,15 @@ gulp.task('connect', function() {
 // deploy
 gulp.task('deploy', function() {
     return gulp.src("./build/**/*")
-        .pipe(deploy())
+        .pipe(deploy());
+});
+
+// test unit
+gulp.task('unit', function (done) {
+  karma.start({
+    configFile: __dirname + '/tests/karma.conf.js',
+    singleRun: true
+  }, done);
 });
 
 gulp.task('default', ['connect']);
