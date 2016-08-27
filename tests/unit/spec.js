@@ -72,8 +72,8 @@ xdescribe('Countries page route test', function() {
       $scope.$broadcast('$routeChangeSuccess');
       $timeout.flush(1000);
     });
-    // This should be false as per countries.js
-    expect($root.isLoading).toBe(true);
+    // This should be false as per countries.js but returns `true`
+    expect($root.isLoading).toBe(false);
   });
 
 });
@@ -123,18 +123,22 @@ xdescribe('Countries controller', function () {
     });
   }));
 
-  it('should call function to grab data from an api', function() {
+  it('should return an object', function() {
     $httpBackend.whenGET('./countries').respond('...');
     $httpBackend.whenGET('http://api.geonames.org/countryInfoJSON?username=cbilliau').respond('...');
     $scope.$apply(function() {
       $location.path('/countries');
+      console.log($scope.getCountryInfo.then());
     });
-    expect($location.path()).toBe('/countries');
+    expect(typeof controller).toBe('object');
+    expect(typeof $scope.getCountryInfo.then()).toBe('object');
   });
 });
 
 // Does not work. Cannot figure this out!!!!!!!
-xdescribe('Countries-detail controller', function () {
+// Keep getting "Error: [$injector:unpr] Unknown provider: countryDetailsProvider <- countryDetails <- CtryDetailCtrl"
+// 
+describe('Countries-detail controller', function () {
 
   var controller = null;
   $scope = null;
@@ -148,17 +152,18 @@ xdescribe('Countries-detail controller', function () {
     $httpBackend = _$httpBackend_;
     $scope = $rootScope.$new();
     $root = $rootScope;
+    countryDetails = $scope.countryDetails;
     controller = $controller('CtryDetailCtrl', {
       $scope: $scope
     });
   }));
 
-  it('should', function() {
+  it('should return an object', function() {
     $httpBackend.whenGET('./countries/:countryCode').respond('...');
     $scope.$apply(function() {
       $location.path('/countries/:countryCode');
     });
-    expect($location.path()).toBe('/countries/:countryCode');
+    expect(typeof cacCountryPopulation()).toBe('function');
   });
 });
 
